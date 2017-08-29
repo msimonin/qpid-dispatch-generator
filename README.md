@@ -6,11 +6,15 @@
 python generator.py
 ```
 
+> You can change there the graph or the number of physical machines...
+
 ## Deploy it
 
 ```
 vagrant up
 ```
+
+> Adjust the number of machine according to the output of the generator
 
 ## Access the gui
 
