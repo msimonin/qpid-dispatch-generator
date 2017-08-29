@@ -9,7 +9,8 @@ GEN_PATH = 'generated'
 
 # logical graph of qdrouterd
 # TODO: specify it through the cli
-graph = nx.complete_graph(SIZE)
+#graph = nx.complete_graph(SIZE)
+graph = nx.nx.tutte_graph()
 
 # physqical machine
 # TODO: specify it through the cli

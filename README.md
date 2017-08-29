@@ -12,8 +12,21 @@ python generator.py
 vagrant up
 ```
 
-## Build the docker image
+## Access the gui
+
+Browse to `http://192.168.11.2:8000`
+
+Enjoy the topology or generate a new one : 
+
+Barbell graph (5x5):
+
+![alt text](barbell.png "Barbell")
+
+# Iteration
 
 ```
-cd docker && docker build .
-```
+python generator.py
+vagrant provision
+vagrant ssh -c "docker ps -aq | xargs docker stop"
+vagrant ssh -c "docker ps -aq | xargs docker rm"
+

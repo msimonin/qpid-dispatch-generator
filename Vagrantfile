@@ -4,7 +4,7 @@ require 'json'
 # Number of VMs to start
 N = 1
 # Qdrouterd confs
-CONFS_PATH = "generated/complete_3_1/confs.json"
+CONFS_PATH = "generated/complete_5_1/confs.json"
 CONFS = JSON.parse(File.read(CONFS_PATH))
 
 $rabbit = <<SCRIPT
