@@ -18,9 +18,13 @@ Browse to `http://192.168.11.2:8000`
 
 Enjoy the topology or generate a new one : 
 
-Barbell graph (5x5):
+* Barbell graph (5x5):
 
 ![alt text](barbell.png "Barbell")
+
+* Tutte graph (with a bad display)
+:
+![alt text](tutte.png "Tutte")
 
 # Iteration
 

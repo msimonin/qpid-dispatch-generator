@@ -37,19 +37,7 @@
         name: "{{ item }}"
         state: present
       with_items:
-        - websockify
         - docker
-
-    - name: Web UI
-      get_url:
-        url: http://apache.crihan.fr/dist/qpid/dispatch/0.8.0/qpid-dispatch-0.8.0.tar.gz
-        dest: /home/vagrant/qpid-dispatch.tar.gz
-
-    - name: Extract Web UI
-      unarchive:
-        src: /home/vagrant/qpid-dispatch.tar.gz
-        dest: /home/vagrant
-        remote_src: True
 
     #
     # Start the qdrouterds

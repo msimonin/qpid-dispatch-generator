@@ -32,10 +32,10 @@ Vagrant.configure(2) do |config|
 	config.vm.provider "g5k" do |g5k, override|
 		override.nfs.functional = false
 		g5k.project_id = "test-vagrant-g5k"
-		g5k.site = "nancy"
+		g5k.site = "rennes"
 		g5k.username = "msimonin"
 		g5k.gateway = "access.grid5000.fr"
-		g5k.walltime = "03:00:00"
+		g5k.walltime = "02:00:00"
 		g5k.image = {
 			:path    => "/home/msimonin/public/ubuntu-16.04.qcow2",
 			:backing => "snapshot"
@@ -44,10 +44,10 @@ Vagrant.configure(2) do |config|
 			:type => "bridge",
 #            :ports => ["#{2222+i}-:22"]
 		}
-		g5k.oar = "virtual != 'none'"
+		g5k.oar = "virtual != 'none' and cluster = 'paravance'"
 #		g5k.resources = {
-#			:cpu => 1,
-#			:mem => 2048
+#			:cpu => 30,
+#		  :mem => 2048
 #		}
 	end #g5k
 
