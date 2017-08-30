@@ -3,7 +3,7 @@
 ## Generate your configurations
 
 ```
-python generator.py
+python main.py
 ```
 
 > You can change there the graph or the number of physical machines...
