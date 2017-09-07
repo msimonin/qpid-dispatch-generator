@@ -3,3 +3,5 @@ generated/
 *.retry
 *.pyc
 .idea
+config.yml
+inventory

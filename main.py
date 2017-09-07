@@ -5,12 +5,18 @@ from qpid_generator.configurations import get_conf
 import json
 import os
 
+from qpid_generator.parser import Config
+
 GEN_PATH = 'generated'
+
+config = Config()
+config.parse_args()
+config.parse_inventory()
 
 # inputs
 graph_type = 'complete_graph'
-args = [5]
-machines = 1
+args = [config.routers]
+machines = config.machines
 
 # machinery
 graph = qnx.call(graph_type, *args)
