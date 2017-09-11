@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 
-import networkx as qnx
+from .graph import generate
 from .distribute import round_robin
 from .configurations import get_conf
 
@@ -23,7 +23,7 @@ args = [config.routers]
 machines = config.machines
 
 # machinery
-graph = qnx.call(graph_type, *args)
+graph = generate(graph_type, *args)
 machines = ["machine%s" % m for m in range(machines)]
 confs = get_conf(graph, machines, round_robin)
 
