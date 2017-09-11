@@ -23,6 +23,6 @@ setup(
     description='',
     long_description=open('README.md').read(),
     install_requires=reqs,
-    url='https://github.com/rh-messaging-qe/qpid_generator',
+    url='https://github.com/rh-messaging-qe/iqa-topology-generator',
     author='Dominik Lenoch <dlenoch@redhat.com>, Jakub Stejskal <jstejska@redhat.com>'
 )

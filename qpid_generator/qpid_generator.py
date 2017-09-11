@@ -9,7 +9,7 @@ from .configurations import get_conf
 import json
 import os
 
-from qpid_generator.parser import Config
+from .parser import Config
 
 GEN_PATH = 'generated'
 
