@@ -1,3 +1,7 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
+
 # one dummy way of mapping qdrouterd to machines
 # Round Robin for now
 def round_robin(graph, machines):
