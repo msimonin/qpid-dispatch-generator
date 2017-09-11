@@ -2,10 +2,16 @@
 # vi: set ft=ruby :
 require 'json'
 # Number of VMs to start
-N = 1
+SIZE = 2
+N = 2
 # Qdrouterd confs
-CONFS_PATH = "generated/complete_5_1/confs.json"
+CONFS_PATH = "generated/complete_graph_#{SIZE}_on_#{N}/confs.json"
 CONFS = JSON.parse(File.read(CONFS_PATH))
+
+# ADd interface variabales
+CONFS['inter_router_interface'] = 'enp0s8'
+CONFS['external_interface'] = 'enp0s9'
+
 
 $rabbit = <<SCRIPT
 apt-get install -y rabbitmq-server
@@ -44,7 +50,7 @@ Vagrant.configure(2) do |config|
 			:type => "bridge",
 #            :ports => ["#{2222+i}-:22"]
 		}
-		g5k.oar = "virtual != 'none' and cluster = 'paravance'"
+		g5k.oar = "virtual != 'none' and cluster = 'parasilo'"
 #		g5k.resources = {
 #			:cpu => 30,
 #		  :mem => 2048
@@ -54,6 +60,7 @@ Vagrant.configure(2) do |config|
   (0..N-1).each do |i|
     config.vm.define "machine#{i}" do |machine|
       machine.vm.network "private_network", ip: "192.168.11.#{2 + i}"
+      machine.vm.network "private_network", ip: "192.168.12.#{2 + i}"
       if i == N - 1
         config.vm.provision "ansible" do |ansible|
           ansible.limit = "all"

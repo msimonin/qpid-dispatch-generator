@@ -5,7 +5,11 @@ router {
 
 {% for listener in item.listeners %}
 listener {
-    host: 0.0.0.0
+    {% if listener.role == "inter-router" %}
+    host: {{ hostvars[listener.host]['ansible_' + inter_router_interface]['ipv4']['address'] }}
+    {% else %}
+    host: {{ hostvars[listener.host]['ansible_' + external_interface]['ipv4']['address'] }}
+    {% endif %}
     port: {{ listener.port }}
     role: {{ listener.role }}
     {% if listener.authenticatePeer is defined %}authenticatePeer: {{ listener.authenticatePeer }} {% else %}{% endif %}
@@ -17,7 +21,7 @@ listener {
 
 {% for connector in item.connectors %}
 connector {
-    host: {{ connector.host }}
+    host: {{ hostvars[connector.host]['ansible_' + inter_router_interface]['ipv4']['address'] }}
     port: {{ connector.port }}
     role: {{ connector.role }}
 }

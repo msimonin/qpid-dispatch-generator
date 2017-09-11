@@ -9,8 +9,8 @@ GEN_PATH = 'generated'
 
 # inputs
 graph_type = 'complete_graph'
-args = [5]
-machines = 1
+args = [2]
+machines = 2
 
 # machinery
 graph = qnx.call(graph_type, *args)
