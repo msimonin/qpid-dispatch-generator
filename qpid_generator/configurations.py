@@ -21,12 +21,12 @@ def get_conf(graph, machines, distribution):
         confs[node].update({
             'listeners': [
                 {
-                    'host': '0.0.0.0',
+                    'host': machine,
                     'port': 6000 + idx,
                     'role': 'inter-router'
                 },
                 {
-                    'host': '0.0.0.0',
+                    'host': machine,
                     'port': 5000 + idx,
                     'role': 'normal',
 
