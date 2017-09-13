@@ -5,3 +5,6 @@ generated/
 .idea
 config.yml
 inventory
+pyenv2
+build
+dist

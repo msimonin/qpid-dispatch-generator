@@ -3,13 +3,13 @@
 
 
 import networkx as qnx
-from .distribute import round_robin
-from .configurations import get_conf
+from distribute import round_robin
+from configurations import get_conf
 
 import json
 import os
 
-from qpid_generator.parser import Config
+from parser import Config
 
 GEN_PATH = 'generated'
 
@@ -24,6 +24,9 @@ machines = config.machines
 
 # machinery
 graph = qnx.call(graph_type, *args)
+
+qnx.write_yaml(graph,'test.yaml')
+
 machines = ["machine%s" % m for m in range(machines)]
 confs = get_conf(graph, machines, round_robin)
 

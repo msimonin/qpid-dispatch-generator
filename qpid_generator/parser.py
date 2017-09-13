@@ -44,7 +44,7 @@ class Config:
         f.closed
 
         for line in read_data.splitlines():
-            if re.match('\[routers\].*', line) != None:
+            if re.match('\[routers\].*', line) is not None:
                 group = 'routers'
             elif re.match('\[brokers\].*', line):
                 group = 'brokers'
