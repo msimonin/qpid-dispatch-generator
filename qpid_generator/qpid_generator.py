@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 
-import networkx as qnx
+import networkx
 from distribute import round_robin
 from configurations import get_conf
 
@@ -10,6 +10,10 @@ import json
 import os
 
 from parser import Config
+
+
+def call(func_name, *args):
+    return getattr(networkx, func_name)(*args)
 
 GEN_PATH = 'generated'
 
@@ -23,9 +27,9 @@ args = [config.routers]
 machines = config.machines
 
 # machinery
-graph = qnx.call(graph_type, *args)
+graph = call(graph_type, *args)
 
-qnx.write_yaml(graph,'test.yaml')
+networkx.write_yaml(graph,'test.yaml')
 
 machines = ["machine%s" % m for m in range(machines)]
 confs = get_conf(graph, machines, round_robin)
