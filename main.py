@@ -9,7 +9,7 @@ GEN_PATH = 'generated'
 
 # inputs
 graph_type = 'complete_graph'
-args = [2]
+args = [5]
 machines = 2
 
 # machinery

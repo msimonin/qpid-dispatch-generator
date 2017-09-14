@@ -35,6 +35,6 @@ Enjoy the topology or generate a new one :
 ```
 python generator.py
 vagrant provision
-vagrant ssh -c "docker ps -aq | xargs docker stop"
-vagrant ssh -c "docker ps -aq | xargs docker rm"
+vagrant ssh -c "sudo docker ps -aq | xargs sudo docker stop"
+vagrant ssh -c "sudo docker ps -aq | xargs sudo docker rm"
 

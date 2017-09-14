@@ -2,7 +2,7 @@
 # vi: set ft=ruby :
 require 'json'
 # Number of VMs to start
-SIZE = 2
+SIZE = 5
 N = 2
 # Qdrouterd confs
 CONFS_PATH = "generated/complete_graph_#{SIZE}_on_#{N}/confs.json"

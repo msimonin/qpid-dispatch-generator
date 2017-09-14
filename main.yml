@@ -82,7 +82,7 @@
     - name: Websockify AMQP listener
       docker_container:
         image: msimonin/websockify
-        command: "0.0.0.0:4999 0.0.0.0:5000"
+        command: "0.0.0.0:4999 {{ hostvars[inventory_hostname]['ansible_' + external_interface]['ipv4']['address'] }}:5000"
         name: websockify
         network_mode: host
         state: started
