@@ -3,6 +3,7 @@
 
 
 import networkx
+from graph import generate
 from distribute import round_robin
 from configurations import get_conf
 
@@ -12,8 +13,6 @@ import os
 from parser import Config
 
 
-def call(func_name, *args):
-    return getattr(networkx, func_name)(*args)
 
 GEN_PATH = 'generated'
 
@@ -27,7 +26,7 @@ args = [config.routers]
 machines = config.machines
 
 # machinery
-graph = call(graph_type, *args)
+graph = generate(graph_type, *args)
 
 networkx.write_yaml(graph,'test.yaml')
 
