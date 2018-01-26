@@ -1,12 +1,16 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-
 def get_conf(graph, machines, distribution):
     ntm, mtn = distribution(graph, machines)
     confs = {}
     router_idx = 0
-
+    # a connector correspond to TCP connections
+    # but will be used in both directions
+    # Edge in the graph should correspond to a single
+    # connection. So we keep track of the already created
+    # connections.
+    connections = []
     for node, nbrdict in graph.adjacency_iter():
         confs.setdefault(node, {})
         machine = ntm[node]
@@ -40,6 +44,10 @@ def get_conf(graph, machines, distribution):
         # outgoing links
         connectors = []
         for out in nbrdict.keys():
+            conn = sorted([node, out])
+            if conn in connections:
+                continue
+            connections.append(conn)
             out_machine = ntm[out]
             out_idx = mtn[out_machine].index(out)
 
